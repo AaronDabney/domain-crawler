@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path');
+
 /**
  * Can create folders if needed
  * @param {*} filePath 
@@ -26,9 +29,9 @@ async function sleep(interval) {
 function removeSuperfluousEdgesFromGraph(graph) {
     const filterGraph = {}
 
-    for (let [key, value] of Object.entries(data)) {
+    for (let [key, value] of Object.entries(graph)) {
         const compressedArray = [...(new Set(value))];
-        cleanedGraph[key] = compressedArray;
+        filterGraph[key] = compressedArray;
     }
 
     return filterGraph;

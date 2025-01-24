@@ -1,7 +1,6 @@
 const { Builder, Browser, By, until } = require('selenium-webdriver')
 const firefox = require('selenium-webdriver/firefox')
-const { sleep } = require('./src/sleep')
-const { defaultBlacklist } = require('./src/defaultBlacklist')
+const { sleep, defaultBlacklist } = require('./utils')
 
 
 async function domainCrawler(startingPage, sleepInterval = 1000, blacklist = defaultBlacklist) {

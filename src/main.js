@@ -1,13 +1,13 @@
-const fs = require('fs')
-const path = require('path');
-const { removeSuperfluousEdgesFromGraph } = require('./utils');
+const { removeSuperfluousEdgesFromGraph, customWriteFileSync} = require('./utils');
+const { domainCrawler } = require('./domainCrawler')
+
 
 const name = 'example';
-const directoryPath = `output/${name}`
+const Url = 'https://www.example.com';
 
-domainCrawler('www.example.com').then(([links, graph]) => {
+domainCrawler(Url).then(([links, graph]) => {
     const filteredGraph = removeSuperfluousEdgesFromGraph(graph);
 
-    customWriteFileSync(`${directoryPath}/${name}_link-manifest.json`, JSON.stringify(links))
-    customWriteFileSync(`${directoryPath}/${name}_adjacency-list.json`, JSON.stringify(filteredGraph))
+    customWriteFileSync(`output/${name}/${name}_link-manifest.json`, JSON.stringify(links))
+    customWriteFileSync(`output/${name}/${name}_adjacency-list.json`, JSON.stringify(filteredGraph))
 });
