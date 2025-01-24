@@ -1,11 +1,11 @@
 const { Builder, Browser, By, until } = require('selenium-webdriver')
 const firefox = require('selenium-webdriver/firefox')
-const { sleep, defaultBlacklist } = require('./utils')
+const { sleep, defaultBlacklist, InvalidInputError } = require('./utils')
 
 
 async function domainCrawler(startingPage, sleepInterval = 1000, blacklist = defaultBlacklist) {
     if (!startingPage) {
-        throw "Must specify target"
+        throw new InvalidInputError("Must specify target");
     }
 
     let driver = await new Builder().forBrowser(Browser.FIREFOX).build()
@@ -17,7 +17,6 @@ async function domainCrawler(startingPage, sleepInterval = 1000, blacklist = def
     stack.push(startingPage);
 
     while (stack.length > 0) {
-        // Sleeping a resonable time between requests is polite
         await sleep(sleepInterval);
         await addUnvisitedToStack(stack.pop());
     }
