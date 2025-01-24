@@ -1,5 +1,7 @@
 Installation:
 ```npm update```
+
+Usage:
 ```node ./src/main.js```
 
 Note: Please be courteous when mapping sites.
