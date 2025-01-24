@@ -1,0 +1,16 @@
+{
+  "name": "domain-crawler",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "graphology": "^0.25.4",
+    "selenium-webdriver": "^4.28.1",
+    "sigma": "^3.0.1"
+  }
+}
