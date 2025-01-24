@@ -1,6 +1,9 @@
 const fs = require('fs')
 const path = require('path');
 
+
+class InvalidInputError extends Error {}
+
 /**
  * Can create folders if needed
  * @param {*} filePath 
@@ -50,4 +53,5 @@ module.exports = {
     sleep,
     removeSuperfluousEdgesFromGraph,
     defaultUrlBlacklist,
+    InvalidInputError
 }
